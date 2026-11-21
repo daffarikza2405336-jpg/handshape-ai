@@ -1,0 +1,4 @@
+customtkinter>=5.2,<7
+numpy>=2.0,<3
+opencv-python==4.11.0.86
+Pillow>=11.3,<13

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#08090b">
+    <meta name="description" content="HandShape AI menerjemahkan gestur tangan menjadi bentuk geometri secara real-time.">
+    <title>HandShape AI — Gestures in motion</title>
+    <link rel="icon" href="/assets/logo.png">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="HandShape AI beranda">
+        <img src="/assets/logo.png" alt="" width="34" height="34">
+        <span>HANDSHAPE <b>AI</b></span>
+      </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a href="#gestures">Gestur</a>
+        <a href="#process">Cara kerja</a>
+        <a href="#about">About</a>
+        <a href="#studio">Live studio</a>
+      </nav>
+      <a class="header-cta" href="#studio">Coba langsung <span>↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> COMPUTER VISION, IN MOTION</p>
+          <h1 id="hero-title">Gestur tangan.<br><span>Bentuk baru.</span></h1>
+          <p class="hero-description">
+            Gerakkan tanganmu dan lihat gestur berubah menjadi geometri secara real-time.
+            Semua diproses dengan computer vision langsung dari kamera.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#studio">Mulai live demo <span>↗</span></a>
+            <a class="button button-quiet" href="#gestures">Jelajahi gestur <span>↓</span></a>
+          </div>
+          <div class="hero-meta">
+            <span><i class="live-dot"></i> REAL-TIME RECOGNITION</span>
+            <span>21 HAND LANDMARKS</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="hero-shape shape-circle"></div>
+          <div class="hero-shape shape-triangle"></div>
+          <div class="hero-shape shape-square"></div>
+          <span class="visual-coordinate coordinate-top">x: 0.64 · y: 0.28</span>
+          <span class="visual-coordinate coordinate-bottom">LANDMARK FLOW / 01</span>
+          <span class="visual-cross cross-one">+</span>
+          <span class="visual-cross cross-two">+</span>
+        </div>
+        <div class="hero-bottom">
+          <span>01 / INTERACTIVE GESTURE ENGINE</span>
+          <span>SCROLL TO EXPLORE <b>↓</b></span>
+        </div>
+      </section>
+
+      <section class="section gesture-section" id="gestures">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / GESTURE LIBRARY</p>
+            <h2>Satu tangan.<br><span>Empat kemungkinan.</span></h2>
+          </div>
+          <p class="section-intro">Pilih gestur untuk memulai. Model membaca posisi jari dan susunan landmark untuk mengenali bentuk.</p>
+        </div>
+        <div class="gesture-grid">
+          <a class="gesture-card" href="#studio" data-gesture="CIRCLE">
+            <div class="gesture-card-top"><span>GESTURE 01</span><span class="card-arrow">↗</span></div>
+            <div class="gesture-icon icon-circle"><span></span></div>
+            <h3>Circle</h3>
+            <p>Satukan ibu jari dan telunjuk membentuk lingkaran.</p>
+            <span class="card-link">COBA GESTUR <b>↗</b></span>
+          </a>
+          <a class="gesture-card" href="#studio" data-gesture="V SHAPE">
+            <div class="gesture-card-top"><span>GESTURE 02</span><span class="card-arrow">↗</span></div>
+            <div class="gesture-icon icon-v"><span></span></div>
+            <h3>V Shape</h3>
+            <p>Angkat telunjuk dan jari tengah untuk membentuk tanda V.</p>
+            <span class="card-link">COBA GESTUR <b>↗</b></span>
+          </a>
+          <a class="gesture-card" href="#studio" data-gesture="TRIANGLE">
+            <div class="gesture-card-top"><span>GESTURE 03</span><span class="card-arrow">↗</span></div>
+            <div class="gesture-icon icon-triangle"><span></span></div>
+            <h3>Triangle</h3>
+            <p>Bentuk tiga sudut dengan kedua tangan di dalam frame.</p>
+            <span class="card-link">COBA GESTUR <b>↗</b></span>
+          </a>
+          <a class="gesture-card" href="#studio" data-gesture="SQUARE">
+            <div class="gesture-card-top"><span>GESTURE 04</span><span class="card-arrow">↗</span></div>
+            <div class="gesture-icon icon-square"><span></span></div>
+            <h3>Square</h3>
+            <p>Gunakan dua gestur V untuk menyusun empat sudut persegi.</p>
+            <span class="card-link">COBA GESTUR <b>↗</b></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="process-section" id="process">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / FROM MOTION TO FORM</p>
+            <h2>Alami prosesnya.</h2>
+          </div>
+          <p class="section-intro">Dibangun untuk menghubungkan gerakan manusia dengan computer vision yang responsif.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step"><span>01</span><div class="step-icon">◉</div><h3>Capture</h3><p>Kamera browser menangkap gerakan tanganmu.</p></article>
+          <article class="process-step"><span>02</span><div class="step-icon">⌗</div><h3>Track</h3><p>Model melacak 21 titik landmark tangan.</p></article>
+          <article class="process-step"><span>03</span><div class="step-icon">⌘</div><h3>Recognize</h3><p>Algoritma mengidentifikasi posisi dan gestur.</p></article>
+          <article class="process-step"><span>04</span><div class="step-icon">◇</div><h3>Visualize</h3><p>Bentuk geometri muncul secara langsung.</p></article>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / THE PEOPLE BEHIND THE PROJECT</p>
+            <h2>Dirancang dengan ide.<br><span>Dibangun bersama.</span></h2>
+          </div>
+          <p class="section-intro">Kenali dua developer di balik HandShape AI.</p>
+        </div>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-photo">
+              <img src="/assets/daffa.jpeg" alt="Foto Daffa Rikza Mansuri" loading="lazy">
+              <span class="team-index">TEAM MEMBER / 01</span>
+              <span class="team-role">DEVELOPER</span>
+            </div>
+            <div class="team-info">
+              <div>
+                <p class="team-label">DEVELOPER</p>
+                <h3>Daffa Rikza Mansuri</h3>
+              </div>
+              <p class="student-id"><span>NIM</span><strong>240533610287</strong></p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo">
+              <img src="/assets/zahra.jpeg" alt="Foto Azzahra Kusuma" loading="lazy">
+              <span class="team-index">TEAM MEMBER / 02</span>
+              <span class="team-role">DEVELOPER</span>
+            </div>
+            <div class="team-info">
+              <div>
+                <p class="team-label">DEVELOPER</p>
+                <h3>Azzahra Kusuma</h3>
+              </div>
+              <p class="student-id"><span>NIM</span><strong>240533600041</strong></p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="studio-section" id="studio">
+        <div class="section-heading studio-heading">
+          <div>
+            <p class="eyebrow">04 / INTERACTIVE STUDIO</p>
+            <h2>Gerakkan. <span>Lihat.</span></h2>
+          </div>
+          <p class="section-intro">Kamera hanya digunakan saat kamu memulai. Frame diproses untuk pengenalan dan tidak disimpan.</p>
+        </div>
+        <div class="studio-layout">
+          <div class="camera-panel">
+            <div class="panel-topline">
+              <span><i class="live-dot"></i> CAMERA FEED</span>
+              <span id="camera-status">STANDBY</span>
+            </div>
+            <div class="camera-stage" id="camera-stage">
+              <video id="camera-video" playsinline muted></video>
+              <canvas id="landmark-canvas" aria-label="Visualisasi landmark tangan"></canvas>
+              <div class="camera-placeholder" id="camera-placeholder">
+                <span class="camera-symbol">◎</span>
+                <strong>Kamera siap</strong>
+                <span>Tekan tombol mulai untuk mengaktifkan webcam.</span>
+              </div>
+              <div class="camera-hud"><span>HAND TRACKING <b>●</b></span><span id="frame-counter">FRAME 0000</span></div>
+            </div>
+            <div class="camera-controls">
+              <button class="button button-primary" id="start-camera" type="button">Mulai kamera <span>↗</span></button>
+              <button class="button button-secondary" id="stop-camera" type="button" disabled>Hentikan</button>
+              <button class="button button-quiet capture-button" id="capture-frame" type="button" disabled>Simpan frame <span>↓</span></button>
+            </div>
+            <p class="camera-message" id="camera-message" role="status" aria-live="polite"></p>
+          </div>
+          <aside class="analysis-panel">
+            <div class="analysis-heading"><span>LIVE ANALYSIS</span><span class="analysis-pulse" id="analysis-pulse"></span></div>
+            <div class="recognition-result">
+              <span class="metric-label">GESTUR TERDETEKSI</span>
+              <strong id="gesture-result">—</strong>
+              <span class="result-caption" id="shape-result">MENUNGGU INPUT</span>
+            </div>
+            <div class="analysis-metrics">
+              <div class="metric"><span class="metric-label">HANDS</span><strong id="hands-count">00</strong></div>
+              <div class="metric"><span class="metric-label">PROCESSING</span><strong id="processing-speed">— ms</strong></div>
+              <div class="metric"><span class="metric-label">DETECTIONS</span><strong id="detection-count">00</strong></div>
+              <div class="metric"><span class="metric-label">LANDMARKS</span><strong id="landmark-count">00</strong></div>
+            </div>
+            <div class="shape-preview">
+              <div class="shape-preview-heading"><span>GEOMETRY OUTPUT</span><span>01 / LIVE</span></div>
+              <canvas id="shape-canvas" width="300" height="180"></canvas>
+            </div>
+            <p class="privacy-note"><span>◈</span> Video diproses secara real-time dan tidak disimpan.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="closing-section">
+        <p class="eyebrow">HANDSHAPE AI / COMPUTER VISION</p>
+        <h2>Biarkan gerakan<br>bercerita.</h2>
+        <a class="button button-primary" href="#studio">Mulai eksplorasi <span>↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#home"><img src="/assets/logo.png" alt="" width="28" height="28"><span>HANDSHAPE <b>AI</b></span></a>
+      <span>REAL-TIME GESTURE RECOGNITION</span>
+      <a href="#home">KEMBALI KE ATAS ↑</a>
+    </footer>
+  </body>
+</html>
