@@ -1,30 +1,37 @@
-# HandShape AI Web App
+# HandShape AI
+
+A gesture-recognition app built with Streamlit, OpenCV, and ONNX hand-detection
+models.
 
 ## Run locally
 
-From the project directory, install the web runtime and start the server:
+Install the dependencies and start Streamlit from the project directory:
 
 ```bash
-python3 -m pip install -r requirements-web.txt
-python3 web_app.py
+python3 -m pip install -r requirements.txt
+streamlit run streamlit_app.py
 ```
 
-Open [http://localhost:8000](http://localhost:8000). Camera access is available on
-`localhost` and on HTTPS sites. Video frames are sent to this app for recognition
-and are not stored.
+The app opens at `http://localhost:8501`. Use **Kamera** to capture a hand
+gesture or **Unggah gambar** to select a JPEG/PNG image. Images are processed
+for recognition and are not saved. The Streamlit version analyzes one image at
+a time rather than continuously streaming video.
 
-## Publish on Render
+The original desktop app can still be started with:
 
-1. Push this project, including `assets/models/`, `web/`, `web_app.py`,
-   `web_server.py`, `requirements-web.txt`, and `render.yaml`, to a GitHub
-   repository. Confirm that the ONNX model files are included.
-2. In Render, choose **New → Blueprint**, connect the repository, and apply the
-   `render.yaml` service configuration.
-3. Wait for the build and deploy to finish, then open the HTTPS URL Render
-   provides.
-4. Allow camera access in the browser when prompted.
+```bash
+python3 main.py
+```
 
-The browser keeps the camera feed on the device and sends individual frames to
-the recognition server over the site's connection. The server processes those
-frames in memory and does not save them. Do not expose the app over plain HTTP
-on a public network; browser camera access requires HTTPS.
+## Publish on Streamlit Community Cloud
+
+1. Push this repository, including `assets/models/`, to GitHub.
+2. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/) with
+   GitHub and select **Create app**.
+3. Choose this repository, the `main` branch, and `streamlit_app.py` as the
+   app file, then deploy.
+4. Share the HTTPS URL Streamlit provides. Camera access requires HTTPS and
+   permission from the browser.
+
+The app uses the free Community Cloud tier. Apps may sleep after inactivity and
+take a short time to wake when opened again.
