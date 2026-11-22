@@ -15,6 +15,15 @@ python3 web_app.py
 Open `http://localhost:8000` in your browser and allow camera access. The app
 processes the camera locally. Press `Ctrl+C` in the terminal to stop the server.
 
+## Deploy to Vercel
+
+Push the repository to GitHub, then import it in Vercel. Set the framework
+preset to **Other** and leave the build and install commands at their defaults.
+Vercel will use `requirements-web.txt`, `api/index.py`, and `vercel.json`.
+
+After deployment, open the HTTPS URL and allow camera access. The camera API
+requires HTTPS or localhost.
+
 The original desktop app can still be started with:
 
 ```bash
