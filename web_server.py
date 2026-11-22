@@ -226,3 +226,9 @@ def create_web_server(
         allow_reuse_address = True
 
     return ThreadedServer((host, port), RequestHandler)
+
+
+if __name__ == "__main__":
+    from web_app import main as web_main
+
+    web_main()
