@@ -18,6 +18,15 @@ class VercelAppTests(unittest.TestCase):
             {"status": "ok", "model_loaded": True},
         )
 
+    def test_vercel_rewrite_dispatches_original_path(self) -> None:
+        response = self.client.get("/api/index.py?path=api/health")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.get_json(),
+            {"status": "ok", "model_loaded": True},
+        )
+
     def test_homepage_is_served(self) -> None:
         response = self.client.get("/")
 

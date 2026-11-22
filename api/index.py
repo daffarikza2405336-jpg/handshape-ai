@@ -34,6 +34,25 @@ def health() -> Response:
     return jsonify(status="ok", model_loaded=True)
 
 
+@app.route("/api/index.py", methods=["GET", "POST"])
+def vercel_rewrite_entry() -> tuple[Response, int] | Response:
+    original_path = "/" + request.args.get("path", "").lstrip("/")
+    if request.method == "POST" and original_path == "/api/recognize":
+        return recognize()
+    if request.method == "GET":
+        if original_path in {"", "/", "/index.html"}:
+            return index()
+        if original_path == "/api/health":
+            return health()
+        if original_path == "/styles.css":
+            return styles()
+        if original_path == "/app.js":
+            return app_js()
+        if original_path.startswith("/assets/"):
+            return assets(original_path.removeprefix("/assets/"))
+    return jsonify(error="Not found."), 404
+
+
 @app.post("/api/recognize")
 def recognize() -> tuple[Response, int] | Response:
     if request.content_type != "application/octet-stream":
