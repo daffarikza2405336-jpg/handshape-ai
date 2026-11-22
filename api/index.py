@@ -19,8 +19,14 @@ from web_server import RecognitionService
 LOGGER = logging.getLogger(__name__)
 WEB_DIR = BASE_DIR / "web"
 app = Flask(__name__)
-detector = HandDetector()
-recognition_service = RecognitionService(detector)
+recognition_service: RecognitionService | None = None
+
+
+def get_recognition_service() -> RecognitionService:
+    global recognition_service
+    if recognition_service is None:
+        recognition_service = RecognitionService(HandDetector())
+    return recognition_service
 
 
 @app.get("/api/health")
@@ -36,10 +42,10 @@ def recognize() -> tuple[Response, int] | Response:
     session_id = request.headers.get("X-Session-ID", "")
     frame_bytes = request.get_data(cache=False)
     try:
-        payload = recognition_service.recognize(frame_bytes, session_id)
+        payload = get_recognition_service().recognize(frame_bytes, session_id)
     except ValueError as error:
         return jsonify(error=str(error)), 400
-    except (cv.error, RuntimeError) as error:
+    except (cv.error, RuntimeError, OSError) as error:
         LOGGER.exception("Hand recognition failed.")
         return jsonify(error=f"Recognition failed: {error}"), 500
 
