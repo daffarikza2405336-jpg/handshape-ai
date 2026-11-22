@@ -4,7 +4,6 @@ import logging
 import sys
 from pathlib import Path
 
-import cv2 as cv
 from flask import Flask, Response, jsonify, request, send_file
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -12,8 +11,6 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from config import ASSETS_DIR, BASE_DIR
-from hand_detection import HandDetector
-from web_server import RecognitionService
 
 
 LOGGER = logging.getLogger(__name__)
@@ -25,6 +22,9 @@ recognition_service: RecognitionService | None = None
 def get_recognition_service() -> RecognitionService:
     global recognition_service
     if recognition_service is None:
+        from hand_detection import HandDetector
+        from web_server import RecognitionService
+
         recognition_service = RecognitionService(HandDetector())
     return recognition_service
 
@@ -45,7 +45,7 @@ def recognize() -> tuple[Response, int] | Response:
         payload = get_recognition_service().recognize(frame_bytes, session_id)
     except ValueError as error:
         return jsonify(error=str(error)), 400
-    except (cv.error, RuntimeError, OSError) as error:
+    except (RuntimeError, OSError, ImportError) as error:
         LOGGER.exception("Hand recognition failed.")
         return jsonify(error=f"Recognition failed: {error}"), 500
 
