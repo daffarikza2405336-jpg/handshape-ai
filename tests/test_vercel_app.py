@@ -27,6 +27,11 @@ class VercelAppTests(unittest.TestCase):
             {"status": "ok", "model_loaded": True},
         )
 
+    def test_vercel_rewrite_supports_head_requests(self) -> None:
+        response = self.client.head("/api/index.py?path=api/health")
+
+        self.assertEqual(response.status_code, 200)
+
     def test_homepage_is_served(self) -> None:
         response = self.client.get("/")
 

@@ -34,12 +34,12 @@ def health() -> Response:
     return jsonify(status="ok", model_loaded=True)
 
 
-@app.route("/api/index.py", methods=["GET", "POST"])
+@app.route("/api/index.py", methods=["GET", "HEAD", "POST"])
 def vercel_rewrite_entry() -> tuple[Response, int] | Response:
     original_path = "/" + request.args.get("path", "").lstrip("/")
     if request.method == "POST" and original_path == "/api/recognize":
         return recognize()
-    if request.method == "GET":
+    if request.method in {"GET", "HEAD"}:
         if original_path in {"", "/", "/index.html"}:
             return index()
         if original_path == "/api/health":
