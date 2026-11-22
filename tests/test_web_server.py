@@ -37,7 +37,7 @@ class WebServerTests(unittest.TestCase):
             self.assertIn("HandShape AI", page)
             self.assertIn("Daffa Rikza Mansuri", page)
             self.assertIn("240533610287", page)
-            self.assertIn("Azzahra Kusuma", page)
+            self.assertIn("Azzahra Brilian Kusuma", page)
             self.assertIn("240533600041", page)
             self.assertEqual(page.count('<p class="team-label">DEVELOPER</p>'), 2)
 
