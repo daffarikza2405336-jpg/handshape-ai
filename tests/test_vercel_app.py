@@ -38,6 +38,12 @@ class VercelAppTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"HandShape AI", response.data)
 
+    def test_vercel_rewrite_serves_animation_module(self) -> None:
+        response = self.client.get("/api/index.py?path=animations.js")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"ScrollTrigger", response.data)
+
 
 if __name__ == "__main__":
     unittest.main()

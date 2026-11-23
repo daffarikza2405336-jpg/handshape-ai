@@ -48,6 +48,8 @@ def vercel_rewrite_entry() -> tuple[Response, int] | Response:
             return styles()
         if original_path == "/app.js":
             return app_js()
+        if original_path == "/animations.js":
+            return animations_js()
         if original_path.startswith("/assets/"):
             return assets(original_path.removeprefix("/assets/"))
     return jsonify(error="Not found."), 404
@@ -85,6 +87,11 @@ def styles() -> Response:
 @app.get("/app.js")
 def app_js() -> Response:
     return send_file(WEB_DIR / "app.js", mimetype="text/javascript")
+
+
+@app.get("/animations.js")
+def animations_js() -> Response:
+    return send_file(WEB_DIR / "animations.js", mimetype="text/javascript")
 
 
 @app.get("/assets/<path:filename>")

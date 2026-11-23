@@ -51,6 +51,12 @@ class WebServerTests(unittest.TestCase):
                 self.assertEqual(response.headers.get_content_type(), "image/jpeg")
                 self.assertGreater(int(response.headers["Content-Length"]), 0)
 
+    def test_animation_module_is_served(self) -> None:
+        with urlopen(f"{self.base_url}/animations.js") as response:
+            self.assertEqual(response.status, 200)
+            self.assertEqual(response.headers.get_content_type(), "text/javascript")
+            self.assertIn(b"ScrollTrigger", response.read())
+
     def test_recognition_returns_landmark_ready_payload(self) -> None:
         ok, encoded = cv.imencode(".jpg", np.zeros((96, 128, 3), dtype=np.uint8))
         self.assertTrue(ok)

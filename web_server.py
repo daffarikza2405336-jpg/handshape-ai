@@ -34,6 +34,7 @@ STATIC_FILES = {
     "/index.html": (WEB_DIR / "index.html", "text/html; charset=utf-8"),
     "/styles.css": (WEB_DIR / "styles.css", "text/css; charset=utf-8"),
     "/app.js": (WEB_DIR / "app.js", "text/javascript; charset=utf-8"),
+    "/animations.js": (WEB_DIR / "animations.js", "text/javascript; charset=utf-8"),
     "/assets/logo.png": (ASSETS_DIR / "logo.png", "image/png"),
     "/assets/daffa.jpeg": (WEB_DIR / "assets" / "daffa.jpeg", "image/jpeg"),
     "/assets/zahra.jpeg": (WEB_DIR / "assets" / "zahra.jpeg", "image/jpeg"),

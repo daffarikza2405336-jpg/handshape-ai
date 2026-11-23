@@ -12,7 +12,10 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+html { scroll-behavior: auto; scroll-padding-top: 86px; }
+html.lenis, html.lenis body { height: auto; }
+html.lenis.lenis-smooth { scroll-behavior: auto !important; }
+html.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 body {
   margin: 0;
   background:
@@ -117,6 +120,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .live-dot { display: inline-block; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px rgba(185,230,197,.8); }
 .hero h1 { margin: 0; font-size: clamp(48px, 8vw, 90px); line-height: .99; letter-spacing: -.075em; font-weight: 700; }
 .hero h1 span { color: #b8bec0; }
+.reveal-word { display: inline-block; }
 .hero-description { max-width: 520px; margin: 24px auto 0; color: #a7adaf; font-size: 14px; line-height: 1.9; }
 .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .button {
@@ -173,9 +177,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
-.gesture-card { position: relative; min-height: 270px; padding: 19px; overflow: hidden; border-radius: 16px; transition: transform .25s ease, border-color .25s ease, background .25s ease; }
+.gesture-card { position: relative; min-height: 270px; padding: 19px; overflow: hidden; border-radius: 16px; transition: border-color .25s ease, background .25s ease; }
 .gesture-card::after { position: absolute; right: -50px; bottom: -80px; width: 150px; height: 150px; border-radius: 50%; background: rgba(185,230,197,.05); filter: blur(26px); content: ""; transition: opacity .25s ease; opacity: 0; }
-.gesture-card:hover { transform: translateY(-5px); border-color: rgba(185,230,197,.48); background-color: rgba(185,230,197,.035); }
+.gesture-card:hover { border-color: rgba(185,230,197,.48); background-color: rgba(185,230,197,.035); }
 .gesture-card:hover::after { opacity: 1; }
 .gesture-card-top { display: flex; justify-content: space-between; color: #7e8689; font: 8px var(--mono); letter-spacing: .1em; }
 .card-arrow { color: var(--accent); font-size: 14px; transition: transform .2s; }
@@ -193,8 +197,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 
 .process-section { background: linear-gradient(180deg, rgba(255,255,255,.014), rgba(255,255,255,.035), rgba(255,255,255,.012)); border-block: 1px solid rgba(255,255,255,.06); }
 .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 1220px; margin: auto; }
-.process-step { position: relative; min-height: 178px; padding: 19px; border-radius: 14px; transition: border-color .2s ease, transform .2s ease; }
-.process-step:hover { transform: translateY(-3px); border-color: rgba(185,230,197,.36); }
+.process-step { position: relative; min-height: 178px; padding: 19px; border-radius: 14px; transition: border-color .2s ease; }
+.process-step:hover { border-color: rgba(185,230,197,.36); }
 .process-step > span { color: var(--accent); font: 9px var(--mono); }
 .step-icon { display: inline-grid; place-items: center; width: 32px; height: 32px; margin: 18px 0 12px; border: 1px solid rgba(185,230,197,.2); border-radius: 10px; color: var(--accent); font-size: 16px; }
 .process-step h3 { font-size: 14px; }
@@ -208,9 +212,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+  transition: border-color .24s ease, box-shadow .24s ease;
 }
-.team-card:hover { transform: translateY(-4px); border-color: rgba(185,230,197,.42); box-shadow: 0 18px 48px rgba(0,0,0,.24); }
+.team-card:hover { border-color: rgba(185,230,197,.42); box-shadow: 0 18px 48px rgba(0,0,0,.24); }
 .team-photo { position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: #050607; }
 .team-photo::after { position: absolute; inset: 30% 0 0; background: linear-gradient(180deg, transparent, rgba(5,6,7,.62)); content: ""; pointer-events: none; }
 .team-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 38%; transition: transform .45s ease, filter .3s ease; }

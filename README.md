@@ -14,6 +14,10 @@ python3 web_app.py
 
 Open `http://localhost:8000` in your browser and allow camera access. The app
 processes the camera locally. Press `Ctrl+C` in the terminal to stop the server.
+The interface uses GSAP/ScrollTrigger for word-by-word heading reveals, Motion
+for card entrances and hover effects, and Lenis for smooth scrolling. These
+animation libraries load from pinned CDN versions; reduced-motion preferences
+disable the effects.
 
 ## Deploy to Vercel
 
